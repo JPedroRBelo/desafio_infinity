@@ -51,7 +51,7 @@ def open_image(image_path: str) -> np.ndarray:
 
     image = cv2.imread(image_path)
     if image is None:
-        print(f'Erro ao abrir imagem:1 {image_path}')
+        print(f'Erro ao abrir imagem: {image_path}')
         sys.exit(1)
     return image
 
@@ -156,42 +156,42 @@ def main(yaml_path: str):
         yaml_path (str): Caminho para o arquivo YAML a ser carregado.
     """
 
-    # Abre arquivo YAML
+    # 1) Abre arquivo YAML
     yaml_file = load_yaml_file(yaml_path)    
-    # Valida e carrega arquivo YAML
+    # 2) Valida e carrega arquivo YAML
     input_data = InputModel(**yaml_file)
 
-    # Abre imagens
+    # 3) Abre imagens
     image_a = open_image(input_data.image_a)
     image_b = open_image(input_data.image_b)
 
-    # Pré-processa imagens: grayscale e redimensionamento
+    # 4) Pré-processa imagens: grayscale e redimensionamento
     pre_image_a = preprocess_image(image_a)
     pre_image_b = preprocess_image(image_b)
 
-    # Calcula histogramas
+    # 5) Calcula histogramas
     histogram_image_a = calculate_histogram(pre_image_a)
     histogram_image_b = calculate_histogram(pre_image_b)
 
-    # Calcula distância cosseno
+    # 6) Calcula distância cosseno
     # Distância cosseno: https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.cosine.html
     distance = cosine(histogram_image_a, histogram_image_b)
 
-    # Concatena e salva imagem concatenada
-    concatenated_image = concatenate_images(pre_image_a, pre_image_b)
-    save_image(concatenated_image, input_data.output_location)
-
-    # Imprime resultados
+    # 7) Imprime resultados
     print(f'distância: {distance}')
     if distance < input_data.threshold:
         print('Mesmo produto')
     else:
         print('Produtos diferentes')
 
+    # 8) Concatena e salva imagem concatenada
+    concatenated_image = concatenate_images(pre_image_a, pre_image_b)
+    save_image(concatenated_image, input_data.output_location)
+
 if __name__ == "__main__":
 
     if len(sys.argv) != 2:
-        print('ERRO! Insira arquivo YAML de configuração. Exemplo: python solution.py example_1.yaml')
+        print('Insira arquivo YAML de configuração. Exemplo: python solution.py example_1.yaml')
         sys.exit(1)
 
     input_yaml_file_path = sys.argv[1]
