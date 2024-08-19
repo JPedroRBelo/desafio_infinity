@@ -35,7 +35,6 @@ Para o projeto, foi utilizado o Python 3.12.4, com auxílio de ambiente virtual 
 - numpy
 - opencv-python
 - scipy
-- opencv-python
 - pydantic
 
 Estas dependências podem ser instaladas a partir do comando abaixo:
