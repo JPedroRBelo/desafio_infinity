@@ -30,7 +30,7 @@ Para verificar se as imagens representam o mesmo produto ou não é utilizada a 
 
 ## Dependências
 
-Para o projeto, foi utilizado o Python 12.3, com auxílio de ambiente virtual para instalação de dependências. As principais dependências são:
+Para o projeto, foi utilizado o Python 3.12.4, com auxílio de ambiente virtual para instalação de dependências. As principais dependências são:
 
 - numpy
 - opencv-python
