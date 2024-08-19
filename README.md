@@ -4,7 +4,7 @@ Neste repositório é implementado o desafio proposto em [doc/readme.md](doc/rea
 
 ## Sobre o código
 
-O código realiza a leitura de configuração que indica as imagens que serão comparadas e qual o valor limiar (*threshold*) que determina se os produtos (representados nas imagens) são os mesmos ou não.
+O código realiza a leitura de parâmetros de configuração, os quais indicam as imagens que serão comparadas e qual o valor limiar (*threshold*) para indicar se os produtos (representados nas imagens) são os mesmos ou não.
 
 De forma resumida, o *script* principal apresenta no terminal a distância entre as imagens e se elas podem ser consideradas o mesmo produto. Além disso, é salvo em disco, um arquivo JPG com resultado da concatenação entre as imagens A e B em escala de cinza.
 
